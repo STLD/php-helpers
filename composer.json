@@ -1,0 +1,23 @@
+{
+	"name": "stld/php-helpers",
+	"description": "PHP helpers for submitting ordering",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "John Veldboom",
+			"email": "john.veldboom@stl-distribution.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "4.1.*",
+		"satooshi/php-coveralls": "dev-master"
+	},
+	"autoload": {
+		"classmap": [
+			"src"
+		]
+	}
+}
