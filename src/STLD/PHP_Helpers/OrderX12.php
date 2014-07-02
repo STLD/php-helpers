@@ -124,7 +124,7 @@ class OrderX12
 	 */
 	public function shipTo(array $shipto)
 	{
-		$this->order->shipto  = 'N1*ST*'.(isset($shipto['company']) ? $shipto['company'] : '').'*91*'.$this->san.PHP_EOL;
+		$this->order->shipto  = 'N1*ST*'.(isset($shipto['company_name']) ? $shipto['company_name'] : '').'*91*'.$this->san.PHP_EOL;
 		$this->order->shipto .= 'N2*'.$shipto['name'].PHP_EOL;;
 		$this->order->shipto .= 'N3*'.$shipto['address1'].'*'.(isset($shipto['address2']) ? $shipto['address2'] : '').'*'.(isset($shipto['address3']) ? $shipto['address3'] : '').''.PHP_EOL;
 		$this->order->shipto .= 'N4*'.$shipto['city'].'*'.$shipto['state'].'*'.$shipto['zip'].'*'.$shipto['country'].PHP_EOL;
