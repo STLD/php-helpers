@@ -21,7 +21,7 @@ class OrderX12
 		$this->company       = $conf['company'];
 		$this->total_ordered = 0;
 
-		$this->order = new stdClass;
+		$this->order = new \stdClass;
 		$this->order->items = array();
 		
 		self::addHeader();
