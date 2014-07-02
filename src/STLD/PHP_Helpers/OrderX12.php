@@ -18,7 +18,7 @@ class OrderX12
 		$this->order_num     = (isset($conf['order_num']) ? $conf['order_num'] : mt_rand(9,9999999999));
 		$this->po_num        = (isset($conf['po_num']) ? $conf['po_num'] : date('ydmhis')); // 140625130139
 		$this->backorders    = $conf['backorders'];
-		$this->company       = $conf['company'];
+		$this->company_name  = $conf['company_name'];
 		$this->total_ordered = 0;
 
 		$this->order = new \stdClass;
@@ -100,7 +100,7 @@ class OrderX12
 	 */
 	public function addbillTo()
 	{
-		$this->order->billto = 'N1*BS*'.$this->company.'*91*'.$this->san.PHP_EOL;
+		$this->order->billto = 'N1*BS*'.$this->company_name.'*91*'.$this->san.PHP_EOL;
 		return $this;
 	}
 
@@ -130,7 +130,7 @@ class OrderX12
 		$this->order->shipto .= 'N4*'.$shipto['city'].'*'.$shipto['state'].'*'.$shipto['zip'].'*'.$shipto['country'].PHP_EOL;
 
 		// change billto segment if there's a shipto address
-		$this->order->billto = 'N1*BT*'.$this->company.'*91*'.$this->san.PHP_EOL;
+		$this->order->billto = 'N1*BT*'.$this->company_name.'*91*'.$this->san.PHP_EOL;
 
 		return $this;
 	}
