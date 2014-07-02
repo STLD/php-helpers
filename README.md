@@ -6,4 +6,7 @@ STLD PHP Helpers
 
 Collection of PHP helper classes to help interact with our systems.
 
-Full documentation for each class can be found in the /docs directory.
+Full documentation for each class can be found in the [docs](docs) directory.
+
+- [Countries](docs/Countries.md)
+- [OrderX12](docs/OrderX12.md)
