@@ -1,6 +1,6 @@
 {
 	"name": "stld/php-helpers",
-	"description": "PHP helpers for submitting ordering",
+	"description": "Collection of PHP helper classes to help interact with our system",
 	"license": "MIT",
 	"authors": [
 		{
