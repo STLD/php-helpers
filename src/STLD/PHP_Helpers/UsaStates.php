@@ -15,8 +15,8 @@ use STLD\PHP_Helpers\Helper;
 |	$state = new STLD\PHP_Helpers\UsaStates;
 |
 |  echo $state::name('GA'); // Georiga
-|  echo $state::alpha('Georgia'); // GA
-|  echo $state::numeric('GA'); // 13
+|  echo $state::numeric('Ga.'); // 13
+|  echo $state::alpha('13'); // GA
 |  echo $state::abbr('Georgia'); // Ga.
 |
 */
