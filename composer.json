@@ -1,6 +1,6 @@
 {
 	"name": "stld/php-helpers",
-	"description": "Collection of PHP helper classes to help interact with our system",
+	"description": "Collection of PHP helper classes to help interact with Send The Light Distribution",
 	"license": "MIT",
 	"authors": [
 		{
