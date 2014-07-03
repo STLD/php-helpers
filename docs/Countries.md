@@ -10,8 +10,8 @@ Class to help you work with countries. Convert and find countries by their full 
 
 ```php
 <?php
-require 'class.countries.php';
-$c = new countries;
+require 'vendor/autoload.php';
+$c = new STLD\PHP_Helpers\Countries;
 
 echo $c::name('US'); // United States
 echo $c::alpha('United States'); // USA
