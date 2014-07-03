@@ -6,6 +6,20 @@ STLD PHP Helpers
 
 Collection of PHP helper classes to help interact with our systems.
 
+## Installation via Composer
+
+Installable via composer - the details are on [packagist](https://packagist.org/packages/stld/php-helpers).
+
+Add the following to the require section of your projects composer.json file:
+
+```"stld/php-helpers": "dev-master"```
+
+Run composer update to download the package
+
+```php composer.phar update```
+
+## Full Documentation
+
 Full documentation for each class can be found in the [docs](docs) directory.
 
 - [Countries](docs/Countries.md)
