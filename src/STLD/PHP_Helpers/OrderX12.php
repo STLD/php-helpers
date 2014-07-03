@@ -112,7 +112,8 @@ class OrderX12
 	 */
 	public function shipping($method)
 	{
-		$this->order->shipping = 'TD5****T*'.$method.PHP_EOL;
+		$this->shipping_method = $method;
+		$this->order->shipping = 'TD5****T*'.$this->shipping_method.PHP_EOL;
 		return $this;
 	}
 
