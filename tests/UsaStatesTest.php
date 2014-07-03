@@ -9,7 +9,8 @@ class UsaStatesTest extends PHPUnit_Framework_TestCase
 		$s = array(
 			States::name('GA'),
 			States::name('Georgia'),
-			States::name('13')
+			States::name('13'),
+			States::name('Ga.'),
 		);
 		
 		$this->assertEquals(implode(',',array_unique($s)),'Georgia');
@@ -25,7 +26,8 @@ class UsaStatesTest extends PHPUnit_Framework_TestCase
 		$s = array(
 			States::alpha('GA'),
 			States::alpha('Georgia'),
-			States::alpha('13')
+			States::alpha('13'),
+			States::alpha('Ga.'),
 		);
 		
 		$this->assertEquals(implode(',',array_unique($s)),'GA');
@@ -41,7 +43,8 @@ class UsaStatesTest extends PHPUnit_Framework_TestCase
 		$s = array(
 			States::numeric('GA'),
 			States::numeric('Georgia'),
-			States::numeric('13')
+			States::numeric('13'),
+			States::numeric('Ga.'),
 		);
 		
 		$this->assertEquals(implode(',',array_unique($s)),'13');
@@ -57,7 +60,8 @@ class UsaStatesTest extends PHPUnit_Framework_TestCase
 		$s = array(
 			States::abbr('GA'),
 			States::abbr('Georgia'),
-			States::abbr('13')
+			States::abbr('13'),
+			States::abbr('Ga.'),
 		);
 		
 		$this->assertEquals(implode(',',array_unique($s)),'Ga.');
