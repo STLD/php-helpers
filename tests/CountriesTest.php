@@ -70,8 +70,8 @@ class CountriesTest extends PHPUnit_Framework_TestCase
 
 	public function test_country_array()
 	{
-		$this->assertTrue(is_array(Countries::countriesArray()));
-		$this->assertGreaterThan(1,count(Countries::countriesArray()));
+		$this->assertTrue(is_array(Countries::getArray()));
+		$this->assertGreaterThan(1,count(Countries::getArray()));
 	}
 
 }
