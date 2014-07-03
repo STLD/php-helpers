@@ -89,23 +89,6 @@ class UsaStates
 	);
 
 	/**
-	 * Get array index number for searched value
-	 * @param  string $value search string
-	 * @return int    array index number			
-	 */
-	private static function getSearchIndex($value)
-	{
-		if(is_numeric($value)){
-			return 1;
-		}
-		elseif(strlen($value) == 2){
-			return 2;
-		}
-		
-		return 0;
-	}
-	
-	/**
 	 * Return state full name (Georgia, Tennessee)
 	 * 
 	 * @param  string $value state name, alpha or numeric code
