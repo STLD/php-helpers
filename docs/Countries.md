@@ -6,7 +6,6 @@ Class to help you work with countries. Convert and find countries by their full 
 ## Quick Usage
 
 ```php
-<?php
 require 'vendor/autoload.php';
 $c = new STLD\PHP_Helpers\Countries;
 
@@ -18,7 +17,8 @@ echo $c::numeric('United States'); // 840
 
 ## Full Usage
 ```php
-<?php
+require 'vendor/autoload.php';
+$c = new STLD\PHP_Helpers\Countries;
 
 // full names - all return United States
 echo $c::name('840');
@@ -47,9 +47,8 @@ echo $c::numberic('United States');
 
 ## Create Country HTML Dropdown Menu
 ```php
-<?php
-require 'class.countries.php';
-$c = new countries;
+require 'vendor/autoload.php';
+$c = new STLD\PHP_Helpers\Countries;
 
 $options = '<option>(choose a country)</option>';
 foreach($c::countriesArray() as $country)
