@@ -1,9 +1,6 @@
 PHP Country Helper
 ==================
 
-[![Build Status](https://travis-ci.org/STLD/php-country-helper.svg?branch=master)](https://travis-ci.org/STLD/php-country-helper) 
-[![Coverage Status](https://coveralls.io/repos/STLD/php-country-helper/badge.png?branch=master)](https://coveralls.io/r/STLD/php-country-helper?branch=master)
-
 Class to help you work with countries. Convert and find countries by their full name (United States), alpha codes (US or USA), or numeric cdes (840).
 
 ## Quick Usage
