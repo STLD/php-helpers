@@ -21,7 +21,7 @@ $x12->shipto(array(
 	'city'     => 'Elizabethton',
 	'state'    => 'TN',
 	'zip'      => '37643,
-	'country'  => 'US',
+	'country'  => '840',
 ));
 
 // add items to order
