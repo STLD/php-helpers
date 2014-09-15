@@ -1,4 +1,33 @@
 PHP OrderX12 Documentation
 ==========================
 
-Full docs coming soon...
+## Example Usage
+```php
+require_once('vendor/autoload.php');
+
+$x12 = new STLD\PHP_Helpers\OrderX12(array(
+	'san'        => 1234,
+	'order_num'  => 100005,
+	'company'    => 'Good Book Company',
+	'po_num'     => 'TEST-ORDER,
+	'backorders' => 'n'
+));
+
+// add drop shipping information
+$x12->shipto(array(
+	'name'     => 'John Doe',
+	'address1' => '100 Biblica Way',
+	'address2' => 'Southside Drive,
+	'city'     => 'Elizabethton,
+	'state'    => 'TN',
+	'zip'      => '30830,
+	'country'  => 'US',
+));
+
+// add items to order
+$x12->addItem('9781591451884',5);
+$x12->addItem('9781433679735',2);
+
+// write order file
+file_put_contents($x12->order_num.'.xpo',$x12);
+```
