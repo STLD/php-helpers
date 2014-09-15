@@ -27,4 +27,5 @@ php composer.phar update
 Full documentation for each class can be found in the [docs](docs) directory.
 
 - [Countries](docs/Countries.md)
+- [UsaStates](docs/UsaStates.md)
 - [OrderX12](docs/OrderX12.md)
