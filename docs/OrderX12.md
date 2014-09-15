@@ -9,7 +9,7 @@ $x12 = new STLD\PHP_Helpers\OrderX12(array(
 	'san'        => 1234,
 	'order_num'  => 100005,
 	'company'    => 'Good Book Company',
-	'po_num'     => 'TEST-ORDER,
+	'po_num'     => 'TEST-ORDER',
 	'backorders' => 'n'
 ));
 
@@ -17,10 +17,10 @@ $x12 = new STLD\PHP_Helpers\OrderX12(array(
 $x12->shipto(array(
 	'name'     => 'John Doe',
 	'address1' => '100 Biblica Way',
-	'address2' => 'Southside Drive,
-	'city'     => 'Elizabethton,
+	'address2' => 'Apt #999,
+	'city'     => 'Elizabethton',
 	'state'    => 'TN',
-	'zip'      => '30830,
+	'zip'      => '37643,
 	'country'  => 'US',
 ));
 
