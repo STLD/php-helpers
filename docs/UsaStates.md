@@ -1,5 +1,5 @@
-PHP Country Helper
-==================
+PHP State Helper
+================
 
 Class to help you work with USA states. Convert and find states by their full name (Georgia), alpha codes (GA), numeric codes (13), or AP abbreviation (Ga.).
 
