@@ -145,6 +145,11 @@ class OrderX12
 	 */
 	public function addItem($item_id,$qty)
 	{
+		$qty = (int) $qty; // force intiger
+		
+		// do not add item if qty is less than 1
+		if($qty < 1) return false;
+
 		$item_id_types = array('10'=>'IB','12'=>'UP','13'=>'EN');
 		
 		$item_id_type = 'EN'; // defaults to EAN/ISBN13
