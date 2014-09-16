@@ -16,8 +16,11 @@ $x12 = new STLD\PHP_Helpers\OrderX12(array(
 // add drop shipping information
 $x12->shipto(array(
 	'name'     => 'John Doe',
-	'address1' => '100 Biblica Way',
-	'address2' => 'Apt #999,
+	'address'  => array(
+		'100 Biblica Way',
+		'Appartment #999,
+		'c/o John Doe',
+	),
 	'city'     => 'Elizabethton',
 	'state'    => 'TN',
 	'zip'      => '37643,
@@ -47,8 +50,11 @@ $x12 = new STLD\PHP_Helpers\OrderX12(array(
 // add drop shipping information
 $x12->shipto(array(
 	'name'     => 'John Doe',
-	'address1' => '100 Biblica Way',
-	'address2' => 'Apt #999,
+	'address'  => array(
+		'100 Biblica Way',
+		'Apartment #999,
+		'c/o John Doe',
+	),
 	'city'     => 'Elizabethton',
 	'state'    => STLD\PHP_Helpers\UsaStates::alpha('Tennessee'),
 	'zip'      => '37643,

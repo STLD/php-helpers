@@ -125,9 +125,10 @@ class OrderX12
 	 */
 	public function shipTo(array $shipto)
 	{
+		$address = self::formatAddress($shipto['address']);
 		$this->order->shipto  = 'N1*ST*'.(isset($shipto['company_name']) ? $shipto['company_name'] : '').'*91*'.$this->san.PHP_EOL;
 		$this->order->shipto .= 'N2*'.$shipto['name'].PHP_EOL;;
-		$this->order->shipto .= 'N3*'.$shipto['address1'].'*'.(isset($shipto['address2']) ? $shipto['address2'] : '').'*'.(isset($shipto['address3']) ? $shipto['address3'] : '').''.PHP_EOL;
+		$this->order->shipto .= 'N3*'.$address[0].'*'.(isset($address[1]) ? $address[1] : '').'*'.(isset($address[2]) ? $address[2] : '').''.PHP_EOL;
 		$this->order->shipto .= 'N4*'.$shipto['city'].'*'.$shipto['state'].'*'.$shipto['zip'].'*'.$shipto['country'].PHP_EOL;
 
 		// change billto segment if there's a shipto address
@@ -181,5 +182,49 @@ class OrderX12
 		$order .= $this->order->footer;
 
 		return $order;
+	}
+
+	/**
+	 * Formats shipping address for string length restrictions (35 per line)
+	 * @param  array $address  address lines (3 max)
+	 * @return array           
+	 */
+	public function formatAddress($address)
+	{
+		// force address to array
+		if(!is_array($address)) return formatAddress(explode("\n",$address));
+		
+		$max_per = 35; // max characters per line
+		$lines = count($address);
+
+		// if address is already 3 lines, trim each line to 35 characters
+		if($lines >= 3)
+		{
+			array_walk($address, function(&$v,$k) use ($max_per) {
+				if(strlen($v) > $max_per) $v = trim(substr($v,0,$max_per));
+			});
+			return $address;
+		}
+		
+		// loop through each address line and check string length
+		// to see if it can be mvoed to the next line
+		// Will only move down 1 line - after that the string is cut
+		$return = array();
+		foreach($address as $a)
+		{
+			if(strlen($a) > $max_per)
+			{
+				// find last space to prevent word from being split
+				$last_space = strripos(substr($a,0,$max_per),' ');
+
+				$return[] = substr($a,0,$last_space);
+				$return[] = trim(substr($a,$last_space,$max_per));
+				continue;
+			}
+
+			$return[] = $a;
+		}
+		
+		return $return;
 	}
 }

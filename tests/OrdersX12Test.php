@@ -31,9 +31,11 @@ class OrdersX12Test extends PHPUnit_Framework_TestCase
 		$this->order->shipto(
 			array(
 				'name'     => 'John Doe',
-				'address1' => '100 Main Street',
-				'address2' => 'Second Address Line',
-				'address3' => 'Third Address Line',
+				'address'  => array(
+					'100 Main Street',
+					'Second Address Line',
+					'Third Address Line'
+				),
 				'city'     => 'Waynesboro',
 				'state'    => 'GA',
 				'zip'      => '30830',
@@ -62,6 +64,22 @@ class OrdersX12Test extends PHPUnit_Framework_TestCase
 		
 		$this->assertTrue(is_string($o));
 		$this->assertTrue(!empty($o));
+	}
+
+	function test_format_address()
+	{
+		$address = array(
+			'12345679 Super Long Address With Lots of Words',
+			'Main Street c/o John Doe',
+			'Please deliver to back door before noon'
+		);
+		$f = $this->order->formatAddress($address);
+		$this->assertEquals($f[2],'Please deliver to back door before');
+
+		$address = array('12345679 Super Long Address With Lots of Words','Main Street c/o John Doe');
+		$f = $this->order->formatAddress($address);
+
+		$this->assertEquals(count($f),3);
 	}
 
 }
