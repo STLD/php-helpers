@@ -18,7 +18,7 @@ $x12->shipto(array(
 	'name'     => 'John Doe',
 	'address'  => array(
 		'100 Biblica Way',
-		'Appartment #999,
+		'Appartment #999',
 		'c/o John Doe',
 	),
 	'city'     => 'Elizabethton',
@@ -52,7 +52,7 @@ $x12->shipto(array(
 	'name'     => 'John Doe',
 	'address'  => array(
 		'100 Biblica Way',
-		'Apartment #999,
+		'Apartment #999',
 		'c/o John Doe',
 	),
 	'city'     => 'Elizabethton',
