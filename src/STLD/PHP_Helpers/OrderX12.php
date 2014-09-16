@@ -192,7 +192,7 @@ class OrderX12
 	public function formatAddress($address)
 	{
 		// force address to array
-		if(!is_array($address)) return formatAddress(explode("\n",$address));
+		if(!is_array($address)) return self::formatAddress(explode("\n",$address));
 		
 		$max_per = 35; // max characters per line
 		$lines = count($address);
