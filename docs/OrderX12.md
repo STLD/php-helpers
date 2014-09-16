@@ -23,7 +23,7 @@ $x12->shipto(array(
 	),
 	'city'     => 'Elizabethton',
 	'state'    => 'TN',
-	'zip'      => '37643,
+	'zip'      => '37643',
 	'country'  => '840',
 ));
 
@@ -57,7 +57,7 @@ $x12->shipto(array(
 	),
 	'city'     => 'Elizabethton',
 	'state'    => STLD\PHP_Helpers\UsaStates::alpha('Tennessee'),
-	'zip'      => '37643,
+	'zip'      => '37643',
 	'country'  => STLD\PHP_Helpers\Countries::numeric('United States'),
 ));
 
