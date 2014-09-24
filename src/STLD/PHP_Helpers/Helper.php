@@ -3,11 +3,10 @@
 class Helper
 {
 	/**
-	 * Recursively search through array to find string
-	 * 
+	 * Recursively search through array to find first instance of string
 	 * @param  string $needle   searching string
 	 * @param  int    $haystack array to search through
-	 * @return mixed  boolean|int             
+	 * @return mixed  int|boolean             
 	 */
 	public static function recursive_array_search($needle,$haystack)
 	{
@@ -20,6 +19,13 @@ class Helper
 		return false;
 	}
 
+	/**
+	 * Recursively finds first instance of a value in array
+	 * @param  string  $value        value to find
+	 * @param  array   $array        array to search
+	 * @param  integer $return_index specific index to return
+	 * @return string|boolean
+	 */
 	public static function searchArray($value,$array,$return_index=0)
 	{
 		$index = self::recursive_array_search($value,$array);
