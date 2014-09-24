@@ -36,4 +36,24 @@ class Helper
 
 		return false;
 	}
+
+	/**
+	 * Find numeric range within an array
+	 * with the option to exclude certain ranges
+	 * Example: $start = 1; $end = 7; would return array(1,2,3,4,5,6,7);
+	 * @param  int   $start
+	 * @param  int   $end
+	 * @param  array $exclude ranges to exclude
+	 * @return array
+	 */
+	public static function arrayRange($start,$end,$exclude=array())
+	{
+		$range = array();
+		for($x=$start; $x<=$end; $x++)
+		{
+			if(!in_array($x, $exclude)) $range[] = $x;
+		}
+		
+		return $range;
+	}
 }
