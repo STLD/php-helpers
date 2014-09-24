@@ -5,3 +5,6 @@ vendor
 
 # OS
 .DS_Store
+
+# Testing
+phpunit.phar
