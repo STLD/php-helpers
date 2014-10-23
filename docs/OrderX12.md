@@ -30,7 +30,7 @@ $x12->shipto(array(
 
 // add items to order
 $x12->addItem('9781591451884',5);
-$x12->addItem('9781433679735',2);
+$x12->addItem('9781433679735',2,19.99,0.23); // with optional retail and discount
 
 // write order file
 file_put_contents($x12->order_num.'.xpo',$x12);
@@ -65,7 +65,7 @@ $x12->shipto(array(
 
 // add items to order
 $x12->addItem('9781591451884',5);
-$x12->addItem('9781433679735',2);
+$x12->addItem('9781433679735',2,19.99,0.23); // with optional retail and discount
 
 // write order file
 file_put_contents($x12->order_num.'.xpo',$x12);

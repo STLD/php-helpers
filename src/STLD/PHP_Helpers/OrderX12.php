@@ -155,11 +155,13 @@ class OrderX12
 	/**
 	 * Adds item to order
 	 * 
-	 * @param  string $item_id ean, isbn13, upc or isbn
-	 * @param  int    $qty     quantity     
+	 * @param  string $item_id   ean, isbn13, upc or isbn
+	 * @param  int    $qty       quantity 
+	 * @param  double $retail    optional retail price
+	 * @param  double $discount  optional discount
 	 * @return string
 	 */
-	public function addItem($item_id,$qty)
+	public function addItem($item_id,$qty,$retail=false,$discount=false)
 	{
 		$qty = (int) $qty; // force intiger
 		
@@ -173,7 +175,12 @@ class OrderX12
 			$item_id_type = $item_id_types[strlen($item_id)];
 		}
 
-		$this->order->items[] = 'PO1*'.count($this->order->items).'*'.$qty.'****'.$item_id_type.'*'.$item_id.PHP_EOL.'CTP**PUR'.PHP_EOL;
+		// add line pricing info
+		$pricing_info = 'CTP**PUR'; // default line if no retail and discount
+		if($retail && $discount) $pricing_info = 'CTP**SLP*'.number_format($retail,2).'*'.$qty.'*EA*DIS*'.number_format($discount,4);
+
+		$this->order->items[] = 'PO1*'.count($this->order->items).'*'.$qty.'****'.$item_id_type.'*'.$item_id.PHP_EOL.''.$pricing_info.PHP_EOL;
+				
 		$this->total_ordered += $qty;
 		
 		// recreate footer each time an item is added to re-calculate order totals
