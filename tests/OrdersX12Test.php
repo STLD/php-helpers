@@ -7,9 +7,10 @@ class OrdersX12Test extends PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->order = new OrderX12(array(
-			'san'          => '12345',
-			'backorders'   => 'Y',
-			'company_name' => 'Test Company'
+			'san'             => '12345',
+			'backorders'      => 'Y',
+			'company_name'    => 'Test Company',
+			'shipping_method' => 'BW'
 		));
 	}
 
@@ -20,6 +21,7 @@ class OrdersX12Test extends PHPUnit_Framework_TestCase
 		$this->assertEquals($this->order->total_ordered,0);
 	}
 
+	// DEPRECIATED FUCNTION - to be removed in later release
 	function test_add_shipping()
 	{
 		$this->order->shipping('BW');

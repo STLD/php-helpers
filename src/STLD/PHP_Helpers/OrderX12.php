@@ -14,18 +14,20 @@ class OrderX12
 
 	function __construct(array $conf)
 	{
-		$this->san           = str_pad($conf['san'],7,0,STR_PAD_LEFT);
-		$this->order_num     = (isset($conf['order_num']) ? $conf['order_num'] : mt_rand(9,9999999999));
-		$this->po_num        = (isset($conf['po_num']) ? $conf['po_num'] : date('ydmhis')); // 140625130139
-		$this->backorders    = $conf['backorders'];
-		$this->company_name  = $conf['company_name'];
-		$this->total_ordered = 0;
+		$this->san             = str_pad($conf['san'],7,0,STR_PAD_LEFT);
+		$this->order_num       = (isset($conf['order_num']) ? $conf['order_num'] : mt_rand(9,9999999999));
+		$this->po_num          = (isset($conf['po_num']) ? $conf['po_num'] : date('ydmhis')); // 140625130139
+		$this->backorders      = $conf['backorders'];
+		$this->company_name    = (isset($conf['company_name']) ? $conf['company_name'] : '');
+		$this->shipping_method = (isset($conf['shipping_method']) ? $conf['shipping_method'] : false);
+		$this->total_ordered   = 0;
 
 		$this->order = new \stdClass;
 		$this->order->items = array();
 		
 		self::addHeader();
 		self::addBackorders();
+		self::addShipping();
 		self::addBillto();
 		self::addFooter();
 
@@ -106,6 +108,19 @@ class OrderX12
 
 	/**
 	 * Add shipping method line
+	 *	
+	 * @return string
+	 */
+	public function addShipping()
+	{
+		if(!$this->shipping_method) return false;
+
+		$this->order->shipping = 'TD5****T*'.$this->shipping_method.PHP_EOL;
+		return $this;
+	}
+
+	/**
+	 * Add shipping method line [DEPRECIATED - add shipping to initial class object]
 	 * 
 	 * @param  string $method valid shipping method
 	 * @return string
@@ -176,6 +191,7 @@ class OrderX12
 	{
 		$order  = $this->order->header;
 		$order .= $this->order->backorders;
+		$order .= (isset($this->order->shipping) ? $this->order->shipping : '');
 		$order .= $this->order->billto;
 		$order .= (isset($this->order->shipto) ? $this->order->shipto : '');
 		$order .= implode('',array_values($this->order->items));
