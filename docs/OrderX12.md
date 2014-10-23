@@ -6,11 +6,12 @@ PHP OrderX12 Documentation
 require_once('vendor/autoload.php');
 
 $x12 = new STLD\PHP_Helpers\OrderX12(array(
-	'san'        => 1234,
-	'order_num'  => 100005,
-	'company'    => 'Good Book Company',
-	'po_num'     => 'TEST-ORDER',
-	'backorders' => 'n'
+	'san'             => 1234,
+	'order_num'       => 100005,
+	'company'         => 'Good Book Company',
+	'po_num'          => 'TEST-ORDER',
+	'backorders'      => 'n',
+	'shipping_method' => 'BR',
 ));
 
 // add drop shipping information
@@ -44,7 +45,8 @@ $x12 = new STLD\PHP_Helpers\OrderX12(array(
 	'order_num'  => 100005,
 	'company'    => 'Good Book Company',
 	'po_num'     => 'TEST-ORDER',
-	'backorders' => 'n'
+	'backorders' => 'n',
+	'shipping_method' => 'BR',
 ));
 
 // add drop shipping information
